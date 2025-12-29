@@ -42,7 +42,7 @@ singularity exec --bind /PWDTOWORKINGDIRECTORY:/workdir /PWDTOCONTAINER/medaka_2
 singularity exec --bind /PWDTOWORKINGDIRECTORY:/workdir /PWDTOCONTAINER/quast-5.2.0 quast.py /workdir/flye_out/medaka_out/consensus.fasta --min-contig 0 -o /workdir/flye_out/medaka_out/quast_out_mincontig0 -t 4
 singularity exec --bind /PWDTOWORKINGDIRECTORY:/workdir /PWDTOCONTAINER/quast-5.2.0 quast.py /workdir/flye_out/medaka_out/consensus.fasta -o /workdir/flye_out/medaka_out/quast_out -t 4
 
-# Assessing assembly quality using checkm2 to calculate coding density, estimate completeness and contamination although contamination has to be interpreted with caution since the DNA came from an isolate and because Haloarchaea are polyploid with differing genomes (Zerulla and Soppa 2014)
+# Assessing assembly quality using checkm2 to calculate coding density, estimate completeness and contamination although contamination has to be interpreted with caution since the DNA came from an isolate and because Haloarchaea are polyploid (Zerulla and Soppa 2014)
 
 singularity exec --bind "${DATABASE_PATH}:/db:image-src=/" --bind /PWDTOWORKINGDIRECTORY:/workdir /PWDTOCONTAINER/checkm2_1.1.0 checkm2 predict --threads 6 --input /workdir/flye_out/medaka_out/consensus.fasta --output-directory /workdir/flye_out/medaka_out/checkm2 --database_path /db/uniref100.KO.1.dmnd -x fasta
 
